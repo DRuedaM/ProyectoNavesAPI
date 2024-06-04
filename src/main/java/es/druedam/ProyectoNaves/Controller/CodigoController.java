@@ -63,7 +63,7 @@ public class CodigoController
     }
 
     @GetMapping("/count/{correo}")
-    public long countCodigoByCorreo(@RequestParam String correo)
+    public int countCodigoByCorreo(@PathVariable String correo)
     {
         return codigoServiceImplementation.countCodigosByCorreo(correo);
     }
@@ -78,5 +78,11 @@ public class CodigoController
     public List<String> getAllcodigosByCorreo(@PathVariable String correo)
     {
         return codigoServiceImplementation.getAllCodigosByCorreo(correo);
+    }
+
+    @GetMapping("/get-code/{codigo}")
+    public boolean getSpecificCodigo(@PathVariable String codigo)
+    {
+        return codigoServiceImplementation.findByCodigo(codigo).isValidado();
     }
 }

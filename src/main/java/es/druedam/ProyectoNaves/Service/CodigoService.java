@@ -3,6 +3,7 @@ package es.druedam.ProyectoNaves.Service;
 import es.druedam.ProyectoNaves.DTO.CodigoDTO;
 import es.druedam.ProyectoNaves.Models.Codigo;
 import org.springframework.data.repository.query.Param;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ public interface CodigoService
     Codigo saveCodigo(Codigo codigo);
     Codigo createCodigo(CodigoDTO createCodigoDTO) throws Exception;
     Codigo updateCodigoValidado(String correo, boolean validado) throws Exception;
-    long countCodigosByCorreo(String correo);
+    int countCodigosByCorreo(@RequestParam("correo") String correo);
     List<CodigoDTO> getAllCorreosAndCodigos();
     List<String> getAllCodigosByCorreo(@Param("correo") String correo);
     Codigo findByCodigo(@Param("codigo") String codigo);

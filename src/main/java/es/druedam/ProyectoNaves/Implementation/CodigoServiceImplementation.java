@@ -8,6 +8,8 @@ import es.druedam.ProyectoNaves.Repository.CodigoRepository;
 import es.druedam.ProyectoNaves.Service.CodigoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Optional;
@@ -66,7 +68,7 @@ public class CodigoServiceImplementation implements CodigoService
     }
 
     @Override
-    public long countCodigosByCorreo(String correo) {
+    public int countCodigosByCorreo(String correo) {
         return codigoRepository.countByAlumnoCorreo(correo);
     }
 
