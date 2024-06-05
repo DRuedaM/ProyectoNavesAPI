@@ -9,7 +9,8 @@ public class ProyectoNavesApplication
 
 	public static void main(String[] args)
 	{
-		SpringApplication.run(ProyectoNavesApplication.class, args);
+		SpringApplication.
+				run(ProyectoNavesApplication.class, args);
 	}
 
 }

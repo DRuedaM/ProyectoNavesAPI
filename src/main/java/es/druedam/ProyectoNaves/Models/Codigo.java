@@ -1,9 +1,7 @@
 package es.druedam.ProyectoNaves.Models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
@@ -13,6 +11,8 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Entity
+@Getter
+@Setter
 @Table(name = "codigo")
 public class Codigo
 {
@@ -35,4 +35,6 @@ public class Codigo
     @ManyToOne
     @JoinColumn(name = "correo")
     private Alumno alumno;
+    
+
 }
