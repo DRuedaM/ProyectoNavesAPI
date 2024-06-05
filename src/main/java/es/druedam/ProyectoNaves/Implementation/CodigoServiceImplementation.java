@@ -7,10 +7,10 @@ import es.druedam.ProyectoNaves.Repository.AlumnoRepository;
 import es.druedam.ProyectoNaves.Repository.CodigoRepository;
 import es.druedam.ProyectoNaves.Service.CodigoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -68,6 +68,18 @@ public class CodigoServiceImplementation implements CodigoService
     }
 
     @Override
+    public ResponseEntity<Object> updateCorreoEnviado(String correo) throws Exception {
+        List<Codigo> existingCodigo = findByCorreo(correo);
+        List<Codigo> newExistingCodigo = new ArrayList<>();
+        for(Codigo codigo : existingCodigo)
+        {
+            codigo.setEnviado(true);
+            saveCodigo(codigo);
+        }
+        return ResponseEntity.ok("Ok");
+    }
+
+    @Override
     public int countCodigosByCorreo(String correo) {
         return codigoRepository.countByAlumnoCorreo(correo);
     }
@@ -86,6 +98,9 @@ public class CodigoServiceImplementation implements CodigoService
     public Codigo findByCodigo(String codigo) {
         return codigoRepository.findByCodigo(codigo);
     }
+
+    @Override
+    public List<Codigo> findByCorreo(String correo) {return codigoRepository.findByAlumnoCorreo(correo);}
 
 
 }

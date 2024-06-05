@@ -41,6 +41,11 @@ public class CodigoController
         return codigoServiceImplementation.updateCodigoValidado(codigo, updateCodigoValidadoDTO.isValidado());
     }
 
+    @PutMapping("/correo-enviado/{correo}")
+    public ResponseEntity<Object> updateCorreoEnviado(@PathVariable String correo) throws Exception {
+        return codigoServiceImplementation.updateCorreoEnviado(correo);
+    }
+
     @PutMapping("/{codigo}")
     public ResponseEntity<Codigo> updateCodigo(@PathVariable String codigo, @RequestBody Codigo updatedCodigo)
     {
