@@ -1,10 +1,10 @@
 package es.druedam.ProyectoNaves.Implementation;
 
+import es.druedam.ProyectoNaves.DTO.AllDTO;
 import es.druedam.ProyectoNaves.Models.Alumno;
 import es.druedam.ProyectoNaves.Repository.AlumnoRepository;
 import es.druedam.ProyectoNaves.Service.AlumnoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -44,6 +44,11 @@ public class AlumnoServiceImplementation implements AlumnoService
     @Override
     public Optional<List<String>> findDistinctAllCorreosAndCodigos() {
         return alumnoRepository.findDistinctAllCorreosAndCodigos();
+    }
+
+    @Override
+    public Optional<List<AllDTO>> getAllAlumnosAndCodigos() {
+        return alumnoRepository.getAllAlumnosAndCodigos();
     }
 
 

@@ -1,8 +1,8 @@
 package es.druedam.ProyectoNaves.Controller;
 
+import es.druedam.ProyectoNaves.DTO.AllDTO;
 import es.druedam.ProyectoNaves.Implementation.AlumnoServiceImplementation;
 import es.druedam.ProyectoNaves.Models.Alumno;
-import es.druedam.ProyectoNaves.Repository.AlumnoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,9 +17,9 @@ public class AlumnoController
     AlumnoServiceImplementation alumnoServiceImplementation;
 
     @GetMapping
-    public List<Alumno> getAllAlumnos()
+    public Optional<List<AllDTO>> getAllAlumnos()
     {
-        return alumnoServiceImplementation.getAllAlumnos();
+        return alumnoServiceImplementation.getAllAlumnosAndCodigos();
     }
 
     @PostMapping("/save")
